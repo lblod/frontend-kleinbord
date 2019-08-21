@@ -1,0 +1,15 @@
+<div class="lokaalbestuur-vlaanderen">
+  <form>
+    <div class="form__row">
+      <label class="form__label">
+        Road sign
+        <span class="form__required">*</span>
+        {{input value=roadSign}}
+      </label>
+    </div>
+
+    <button {{action "sendRoadSign"}} class="button" role="button">Send road sign to gelinkt notuleren</button>
+  </form>
+</div>
+
+{{outlet}}
