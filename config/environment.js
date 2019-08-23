@@ -5,8 +5,6 @@ module.exports = function(environment) {
     modulePrefix: 'frontend-kleinbord',
     environment,
     rootURL: '/',
-    roadSignRedirectionBaseUrl: 'http://dev.gelinkt-notuleren.lblod.info/fetch-rdfa',
-    documentContainerUri: 'localhost:4200',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -31,8 +29,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.roadSignRedirectionBaseUrl = 'http://dev.gelinkt-notuleren.lblod.info/fetch-rdfa';
-    ENV.documentContainerUri = 'http://dev.kleinbord.lblod.info';
   }
 
   if (environment === 'test') {

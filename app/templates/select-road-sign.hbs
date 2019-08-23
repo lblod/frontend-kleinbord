@@ -2,12 +2,24 @@
   <form>
     <div class="form__row">
       <label class="form__label">
-        Road sign
+        URL of the version of Gelinkt Notuleren that you want to use:
         <span class="form__required">*</span>
-        {{input value=roadSign}}
+        {{input value=urlGnApp}}
       </label>
     </div>
-
+    <div class="form__row">
+      <label class="form__label">
+        Editor document container's URI:
+        <span class="form__required">*</span>
+        {{input value=containerUri}}
+      </label>
+    </div>
+    <div class="form__row">
+      <label class="form__label">
+        Log in through mock-login:
+        {{input type="checkbox" checked=mockLogin}}
+      </label>
+    </div>
     <button {{action "sendRoadSign"}} class="button" role="button">Send road sign to gelinkt notuleren</button>
   </form>
 </div>

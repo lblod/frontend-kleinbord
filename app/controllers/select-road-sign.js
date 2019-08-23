@@ -1,11 +1,13 @@
 import Controller from '@ember/controller';
-import ENV from 'frontend-kleinbord/config/environment';
 
 export default Controller.extend({
+  urlGnApp: 'http://dev.gelinkt-notuleren.lblod.info',
+  mockLogin: false,
+
   actions: {
     async sendRoadSign() {
-      if (this.roadSign) {
-        window.location.replace(ENV.roadSignRedirectionBaseUrl+"?mock&documentUri="+this.roadSign+"&documentContainerUri="+ENV.documentContainerUri);
+      if (this.urlGnApp && this.containerUri) {
+        window.location.replace(this.urlGnApp+'/fetch-rdfa?source=<https://dev.kleinbord.lblod.info/input/example.html>&target=<'+this.containerUri+'>&mock='+this.mockLogin);
       }
     }
   }
