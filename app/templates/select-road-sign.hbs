@@ -1,26 +1,25 @@
-<div class="lokaalbestuur-vlaanderen">
-  <form>
+<div class="layout layout--normal">
+  <h1 class="h1">Kleinbord applicatie</h1>
+  <form {{action "importInEditor" on="submit"}}>
     <div class="form__row">
-      <label class="form__label">
-        URL of the version of Gelinkt Notuleren that you want to use:
-        <span class="form__required">*</span>
-        {{input value=urlGnApp}}
-      </label>
+      <label for="input-app-url" class="form__label">URL Gelinkt Notuleren</label>
+      {{input value=urlGnApp class="input-field input-field--block"}}
     </div>
     <div class="form__row">
-      <label class="form__label">
-        Editor document container's URI:
-        <span class="form__required">*</span>
-        {{input value=containerUri}}
-      </label>
+      <label for="input-app-url" class="form__label">Editor document container URI</label>
+      {{input value=containerUri class="input-field input-field--block"}}
     </div>
     <div class="form__row">
-      <label class="form__label">
-        Log in through mock-login:
-        {{input type="checkbox" checked=mockLogin}}
+      <label class="checkbox">
+        {{input type="checkbox" checked=mockLogin class="checkbox__toggle"}}
+        <span></span> Log in via mock login
       </label>
     </div>
-    <button {{action "sendRoadSign"}} class="button" role="button">Send road sign to gelinkt notuleren</button>
+    {{#if importEnabled}}
+      <button type="submit" class="button" role="button">Importeer in Gelinkt Notuleren</button>
+    {{else}}
+      <button type="submit" class="button button--disabled" disabled role="button">Importeer in Gelinkt Notuleren</button>
+    {{/if}}
   </form>
 </div>
 
