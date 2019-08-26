@@ -1,12 +1,16 @@
 import Controller from '@ember/controller';
+import { and } from '@ember/object/computed';
 
 export default Controller.extend({
+
   urlGnApp: 'http://dev.gelinkt-notuleren.lblod.info/import/edit',
   sourceUrl: 'https://dev.kleinbord.lblod.info/snippets/example.html',
-  mockLogin: false,
+  mockLogin: true,
+
+  importEnabled: and('urlGnApp', 'sourceUrl'),
 
   actions: {
-    async sendRoadSign() {
+    importInEditor() {
       if (this.urlGnApp) {
         let params = [];
         params.push(`source=${this.sourceUrl}`);
