@@ -2,24 +2,23 @@
   <h1 class="h1">Kleinbord applicatie</h1>
   <form {{action "importInEditor" on="submit"}}>
     <div class="form__row">
-
       <label class="form__label">
-        Source url
+        Source URL
         <span class="form__required">*</span>
-        {{input value=sourceUrl class="custom-form"}}
+        {{input value=sourceUrl focus-out=(perform fetchSource)}}
       </label>
     </div>
     <div class="form__row">
       <label class="form__label">
         URL of the version of Gelinkt Notuleren that you want to use:
         <span class="form__required">*</span>
-        {{input value=urlGnApp class="custom-form"}}
+        {{input value=urlGnApp class="width-75"}}{{urlGnPath}}
       </label>
     </div>
     <div class="form__row">
       <label class="form__label">
         Editor document container's URI:
-        {{input value=containerUri class="custom-form"}}
+        {{input value=containerUri}}
       </label>
     </div>
     <div class="form__row">
@@ -34,6 +33,15 @@
       <button type="submit" class="button button--disabled" disabled role="button">Importeer in Gelinkt Notuleren</button>
     {{/if}}
   </form>
+  <div class="u-spacer--large"></div>
+  <h3 class="h3">Data om te importeren</h3>
+  <div class="source">
+    {{#if fetchSource.isRunning}}
+      Loading...
+    {{else}}
+      <pre>{{source}}</pre>
+    {{/if}}
+  </div>
 </div>
 
 {{outlet}}

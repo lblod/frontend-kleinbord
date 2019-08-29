@@ -1,3 +1,7 @@
-.custom-form{
+input {
   width: 100%;
+}
+
+.width-75 {
+  width: 75%;
 }

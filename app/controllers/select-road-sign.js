@@ -1,13 +1,33 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 import { and } from '@ember/object/computed';
+import { task } from 'ember-concurrency';
+import fetch from 'fetch';
 
 export default Controller.extend({
 
-  urlGnApp: 'http://dev.gelinkt-notuleren.lblod.info/import/edit',
+  urlGnApp: 'http://dev.gelinkt-notuleren.lblod.info',
   sourceUrl: 'https://dev.kleinbord.lblod.info/snippets/example.html',
   mockLogin: true,
 
   importEnabled: and('urlGnApp', 'sourceUrl'),
+  urlGnPath: computed('containerUri', function() {
+    return this.containerUri ? '/import/edit' : '/import/new';
+  }),
+
+  fetchSource: task(function* () {
+    if (this.sourceUrl) {
+      try {
+        const res = yield fetch(this.sourceUrl);
+        const source = yield res.text();
+        this.set('source', source);
+      } catch (e) {
+        this.set('source', 'Failed to fetch source');
+      }
+    } else {
+      this.set('source', null);
+    }
+  }).keepLatest(),
 
   actions: {
     importInEditor() {
@@ -15,12 +35,12 @@ export default Controller.extend({
         let params = [];
         params.push(`source=${this.sourceUrl}`);
 
-        if(this.containerUri)
+        if (this.containerUri)
           params.push(`target=${this.containerUri}`);
 
         params.push(`mock=${this.mockLogin}`);
 
-        window.location.replace(this.urlGnApp +`?${params.join('&')}`);
+        window.location.replace(`${this.urlGnApp}${this.urlGnPath}?${params.join('&')}`);
       }
     }
   }
