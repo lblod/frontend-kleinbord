@@ -7,7 +7,7 @@ import fetch from 'fetch';
 export default Controller.extend({
 
   urlGnApp: 'http://dev.gelinkt-notuleren.lblod.info',
-  sourceUrl: 'https://dev.kleinbord.lblod.info/snippets/example.html',
+  sourceUrl: 'https://dev.kleinbord.lblod.info/snippets/example-1.html',
   mockLogin: true,
 
   importEnabled: and('urlGnApp', 'sourceUrl'),
