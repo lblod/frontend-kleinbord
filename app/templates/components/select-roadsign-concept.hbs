@@ -1,7 +1,12 @@
 {{#power-select
+  searchEnabled=true
+  placeholder="F103, E7, A17, ..."
+  search=(perform search)
+  searchPlaceholder="Typ om te zoeken..."
   options=roadsigns
   selected=roadsign
   onChange=(action "setRoadsign")
+  allowClear=true
   as |option|}}
     <img src={{option.afbeelding}} alt="roadsign" height="42" width="42"> {{option.betekenis}}
 {{/power-select}}
