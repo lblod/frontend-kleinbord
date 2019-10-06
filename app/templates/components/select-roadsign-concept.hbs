@@ -1,0 +1,7 @@
+{{#power-select
+  options=roadsigns
+  selected=roadsign
+  onChange=(action "setRoadsign")
+  as |option|}}
+    <img src={{option.afbeelding}} alt="roadsign" height="42" width="42"> {{option.betekenis}}
+{{/power-select}}
