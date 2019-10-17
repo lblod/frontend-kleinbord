@@ -10,14 +10,14 @@
     </div>
     <div class="form__row">
       <label class="form__label">
-        URL of the version of Gelinkt Notuleren that you want to use:
+        URL van de Gelinkt Notuleren applicatie waarin u de snippet wil importeren
         <span class="form__required">*</span>
         {{input value=urlGnApp class="width-75"}}{{urlGnPath}}
       </label>
     </div>
     <div class="form__row">
       <label class="form__label">
-        Editor document container's URI:
+        Editor document container URI (enkel nodig indien u een reeds geimporteerde snippet wil aanpassen in een document):
         {{input value=containerUri}}
       </label>
     </div>
@@ -39,7 +39,7 @@
     {{#if fetchSource.isRunning}}
       Loading...
     {{else}}
-      <pre>{{source}}</pre>
+      {{snippet-preview source=source}}
     {{/if}}
   </div>
 </div>
