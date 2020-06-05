@@ -3,10 +3,11 @@ import { computed } from '@ember/object';
 import { and } from '@ember/object/computed';
 import { task } from 'ember-concurrency';
 import fetch from 'fetch';
+import ENV from 'frontend-kleinbord/config/environment';
 
 export default Controller.extend({
-  urlGnApp: 'https://dev.gelinkt-notuleren.lblod.info',
-  sourceUrl: 'https://dev.kleinbord.lblod.info/snippets/example-1.html',
+  urlGnApp: ENV.kleinbord.urlGnApp,
+  sourceUrl: 'https://dev.kleinbord.lblod.info/snippets/example-opstellingen.html',
   mockLogin: true,
 
   importEnabled: and('urlGnApp', 'sourceUrl'),

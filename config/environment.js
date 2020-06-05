@@ -16,7 +16,9 @@ module.exports = function(environment) {
         Date: false
       }
     },
-
+    kleinbord: {
+      urlGnApp: 'http://localhost:4200'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -45,6 +47,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.kleinbord.urlGnApp = 'https://dev.gelinkt-notuleren.lblod.info';
   }
 
   return ENV;
