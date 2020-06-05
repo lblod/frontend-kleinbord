@@ -32,6 +32,7 @@ export default Controller.extend({
     importInEditor() {
       if (this.urlGnApp) {
         let params = [];
+        params.push(`omitCredentials=true`);
         params.push(`source=${this.sourceUrl}`);
 
         if (this.containerUri)
